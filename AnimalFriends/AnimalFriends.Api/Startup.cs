@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Serialization;
 
 namespace AnimalFriends.Api
 {
@@ -25,7 +26,15 @@ namespace AnimalFriends.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
+            services.AddHttpContextAccessor();
+
+            services.AddLogging(c =>
+            {
+                c.AddConsole();
+            });
+            services.AddSingleton<ILogger>(provider =>
+                provider.GetRequiredService<ILogger<Program>>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +48,7 @@ namespace AnimalFriends.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseMiddleware<ErrorHandlerMiddleware>();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

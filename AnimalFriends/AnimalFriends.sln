@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalFriends.Api", "Animal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalFriends.Api.Unit.Tests", "AnimalFriends.Api.Unit.Tests\AnimalFriends.Api.Unit.Tests.csproj", "{E6251696-41F3-4362-8855-F404F62389E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalFriends.Core", "AnimalFriends.Core\AnimalFriends.Core.csproj", "{44F5E2E2-91ED-4B84-A08B-489B4CC2626F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalFriends.Core.Unit.Tests", "AnimalFriends.Core.Unit.Tests\AnimalFriends.Core.Unit.Tests.csproj", "{A8C451C8-F8C4-458D-84DB-8EF519095542}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database1", "Database1\Database1.sqlproj", "{82EC2996-F837-4982-B005-4B069FB96630}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,20 @@ Global
 		{E6251696-41F3-4362-8855-F404F62389E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6251696-41F3-4362-8855-F404F62389E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6251696-41F3-4362-8855-F404F62389E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F5E2E2-91ED-4B84-A08B-489B4CC2626F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F5E2E2-91ED-4B84-A08B-489B4CC2626F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F5E2E2-91ED-4B84-A08B-489B4CC2626F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F5E2E2-91ED-4B84-A08B-489B4CC2626F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C451C8-F8C4-458D-84DB-8EF519095542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C451C8-F8C4-458D-84DB-8EF519095542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C451C8-F8C4-458D-84DB-8EF519095542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C451C8-F8C4-458D-84DB-8EF519095542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82EC2996-F837-4982-B005-4B069FB96630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82EC2996-F837-4982-B005-4B069FB96630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82EC2996-F837-4982-B005-4B069FB96630}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{82EC2996-F837-4982-B005-4B069FB96630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82EC2996-F837-4982-B005-4B069FB96630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82EC2996-F837-4982-B005-4B069FB96630}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
