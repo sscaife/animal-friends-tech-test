@@ -28,6 +28,28 @@ namespace AnimalFriends.Core.Unit.Tests
         }
 
         [Test]
+        public void Constuctor_GivenNullRepository_ThrowsArgumentNullException()
+        {
+            var actual = Assert.Throws<ArgumentNullException>(() =>
+            {
+                new CustomerService(null, _mapper.Object);
+            });
+
+            actual.ParamName.Should().Be("repository");
+        }
+
+        [Test]
+        public void Constuctor_GivenNullMapper_ThrowsArgumentNullException()
+        {
+            var actual = Assert.Throws<ArgumentNullException>(() =>
+            {
+                new CustomerService(_repository.Object, null);
+            });
+
+            actual.ParamName.Should().Be("mapper");
+        }
+
+        [Test]
         public async Task SaveModel_GivenModel_MapsToDto()
         {
             await _service.SaveModelAsync(new CustomerModel());

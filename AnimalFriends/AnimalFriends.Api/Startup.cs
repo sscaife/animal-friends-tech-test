@@ -8,8 +8,13 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using AnimalFriends.Core;
+using AnimalFriends.Core.Data;
+using AutoMapper;
 using Newtonsoft.Json.Serialization;
 
 namespace AnimalFriends.Api
@@ -28,11 +33,21 @@ namespace AnimalFriends.Api
         {
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
             services.AddHttpContextAccessor();
-
+            services.AddTransient<IDbConnection>(ctx =>
+                new SqlConnection(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<ICustomerService, CustomerService>();
             services.AddLogging(c =>
             {
                 c.AddConsole();
             });
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
             services.AddSingleton<ILogger>(provider =>
                 provider.GetRequiredService<ILogger<Program>>());
         }

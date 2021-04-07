@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using AnimalFriends.Core.Data;
 using AnimalFriends.Core.Presentation;
@@ -13,8 +14,8 @@ namespace AnimalFriends.Core
 
         public CustomerService(ICustomerRepository repository, IMapper mapper)
         {
-            _repository = repository;
-            _mapper = mapper;
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper)); ;
         }
 
 

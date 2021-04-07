@@ -17,18 +17,21 @@ namespace AnimalFriends.Core.Data
         public async Task<int> SaveCustomerAsync(CustomerDto customer, CancellationToken cancellationToken = default)
         {
             return await _dbConnection.ExecuteScalarAsync<int>(
-                @"INSERT INTO Customer (
-                         FirstName
+                @"INSERT INTO dbo.Customers (
+                         Firstname
                         ,Surname
                         ,PolicyReferenceNumber
                         ,DateOfBirth
                         ,Email
+                     ) 
                      VALUES (
-                         @FirstName
+                         @Firstname
                         ,@Surname
                         ,@PolicyReferenceNumber
                         ,@DateOfBirth
-                        ,@Email", customer);
+                        ,@Email
+                     );
+                     SELECT SCOPE_IDENTITY();", customer);
         }
     }
 }
