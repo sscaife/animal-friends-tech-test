@@ -5,6 +5,7 @@ using System.Text;
 
 namespace AnimalFriends.Core.Presentation
 {
+    [EmailOrDoBValidator(new []{ "Email", "DateOfBirth" }, ErrorMessage = "Please provide a value for Email, DoB or both")]
     public class CustomerModel
     {
         [Required]
