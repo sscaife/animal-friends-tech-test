@@ -17,7 +17,7 @@ Using postman or similar psot the following object, at least one out of email or
         "firstName": "John",
         "surname": "Doey",
         "policyReferenceNumber": "DD-123456",
-        "dateOfBirth": "1981-01-01", //not required
-        "email": "some@email@.com // not required
+        "dateOfBirth": "1981-01-01",
+        "email": "some@email@.com 
 }
 ```
